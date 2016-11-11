@@ -107,3 +107,9 @@ if (document.location.hash.length > 1) {
         changeExpression();
     }, 50);
 }
+
+var button = document.getElementById('btn-download');
+button.addEventListener('click', function (e) {
+	var dataURL = canvas.toDataURL('image/png');
+	button.href = dataURL;
+});
