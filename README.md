@@ -5,5 +5,4 @@ Un site web autour de la Licorne du Genre de TSER. L'utilisateur peut faire sa p
 
 # TODO
 
-* Next to the URL sharing button, add a button (already written in the index.html but not working) to let users download an image of their Unicorn (with a screenshot made client-side or server-side).
 * Mobile-friendly version.
