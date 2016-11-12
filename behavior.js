@@ -108,8 +108,18 @@ if (document.location.hash.length > 1) {
     }, 50);
 }
 
-var button = document.getElementById('btn-download');
-button.addEventListener('click', function (e) {
-	var dataURL = canvas.toDataURL('image/png');
-	button.href = dataURL;
+$('#btn-download').click(function() {
+	var canvas = $("#dl-canvas")[0];
+	var context = canvas.getContext("2d");
+var img = $("#unicorn-jpg")[0]; //draw background
+	context.drawImage(img,0,0);
+
+        var birth = $("#assigned-female")[0].checked ? 910 : -100;
+        birth = $("#assigned-male")[0].checked ? 1207 : birth;
+        birth = $("#assigned-other")[0].checked ? 1502 : birth;
+        img = $("#cross-png")[0];
+	context.drawImage(img,birth,937); //910;
+
+ 	var dataURL = canvas.toDataURL('image/png');
+ 	window.open(dataURL);
 });
