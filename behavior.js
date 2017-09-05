@@ -111,31 +111,40 @@ if (document.location.hash.length > 1) {
 $('#btn-download').click(function() {
 	var canvas = $("#dl-canvas")[0];
 	var context = canvas.getContext("2d");
-    var img = $("#unicorn-jpg")[0]; //draw background
- 		context.drawImage(img,0,0);
- 
-         var birth = $("#assigned-female")[0].checked ? 910 : -100;
-         birth = $("#assigned-male")[0].checked ? 1207 : birth;
-         birth = $("#assigned-other")[0].checked ? 1502 : birth;
-         img = $("#util-png")[0];
-	     context.drawImage(img,0,0,42,51,birth,937,42,51);
+	var img = $("#unicorn-jpg")[0]; //draw background
+	context.drawImage(img,0,0);
 
- 	     context.drawImage(img,42,0,29,51,880+5.6*$("#identity-female").val(),371,29,51);
-         context.drawImage(img,42,0,29,51,880+5.6*$("#identity-male").val(),419,29,51);
-         context.drawImage(img,42,0,29,51,880+5.6*$("#identity-other").val(),465,29,51);
+	var birth = $("#assigned-female")[0].checked ? 910 : -100;//check assigned gender
+	birth = $("#assigned-male")[0].checked ? 1207 : birth;
+	birth = $("#assigned-other")[0].checked ? 1502 : birth;
+	img = $("#util-png")[0];
+	context.drawImage(img,0,0,42,51,birth,937,42,51);//draw a cross on it
 
-         context.drawImage(img,71,0,29,51,880+5.6*$("#expression-feminine").val(),622,29,51);
-         context.drawImage(img,71,0,29,51,880+5.6*$("#expression-masculine").val(),669,29,51);
-         context.drawImage(img,71,0,29,51,880+5.6*$("#expression-other").val(),716,29,51);
+ 	context.drawImage(img,42,0,29,51,880+5.6*$("#identity-female").val(),371,29,51);//draw gender identity sliders
+	context.drawImage(img,42,0,29,51,880+5.6*$("#identity-male").val(),419,29,51);
+	context.drawImage(img,42,0,29,51,880+5.6*$("#identity-other").val(),465,29,51);
 
-         context.drawImage(img,100,0,29,51,880+5.6*$("#physical-women").val(),1109,29,51);
-         context.drawImage(img,100,0,29,51,880+5.6*$("#physical-men").val(),1156,29,51);
-         context.drawImage(img,100,0,29,51,880+5.6*$("#physical-other").val(),1203,29,51);
+	context.drawImage(img,71,0,29,51,880+5.6*$("#expression-feminine").val(),622,29,51);//draw gender expression sliders
+	context.drawImage(img,71,0,29,51,880+5.6*$("#expression-masculine").val(),669,29,51);
+	context.drawImage(img,71,0,29,51,880+5.6*$("#expression-other").val(),716,29,51);
 
-         context.drawImage(img,129,0,29,51,880+5.6*$("#emotional-women").val(),1364,29,51);
-         context.drawImage(img,129,0,29,51,880+5.6*$("#emotional-men").val(),1410,29,51);
-         context.drawImage(img,129,0,29,51,880+5.6*$("#emotional-other").val(),1457,29,51);
+	context.drawImage(img,100,0,29,51,880+5.6*$("#physical-women").val(),1109,29,51);//draw physical attraction sliders
+	context.drawImage(img,100,0,29,51,880+5.6*$("#physical-men").val(),1156,29,51);
+	context.drawImage(img,100,0,29,51,880+5.6*$("#physical-other").val(),1203,29,51);
 
-        var dataURL = canvas.toDataURL('image/png');
-	  	window.open(dataURL);
+	context.drawImage(img,129,0,29,51,880+5.6*$("#emotional-women").val(),1364,29,51);//draw romantic attraction sliders
+	context.drawImage(img,129,0,29,51,880+5.6*$("#emotional-men").val(),1410,29,51);
+	context.drawImage(img,129,0,29,51,880+5.6*$("#emotional-other").val(),1457,29,51);
+
+        canvas.toBlob(function(blob) {//convert to blob
+		const url = window.URL.createObjectURL(blob);//create URL for that blob
+		var dl = document.createElement("a");//create a download link
+		document.body.appendChild(dl);//append it to the document
+		dl.style = "display: none";//set it invisible
+		dl.href = url;
+		dl.download = "Gender Unicorn.png";//set donload name
+		dl.click();//download
+		window.URL.revokeObjectURL(url);//delete no longer used url
+		dl.outerHTML = "";//delete no longer used element
+	});
 });
