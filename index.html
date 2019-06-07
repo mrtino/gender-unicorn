@@ -3,25 +3,25 @@
     <head>
         <meta charset='utf-8' />
         <title>La Licorne du Genre</title>
-        <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.min.css' />
-        <link href='font.css' rel='stylesheet' type='text/css' />
-        <link rel='stylesheet/less' type='text/css' href='sliders.less' />
-        <link rel='stylesheet/less' type='text/css' href='style.less' />
-        <link rel='stylesheet' href='tooltip.css' />
-        <script src='bower_components/less/dist/less.min.js'></script>
+        <link rel='stylesheet' href='bootstrap/css/bootstrap.min.css' />
+        <link href='css/fonts.css' rel='stylesheet' type='text/css' />
+        <link rel='stylesheet/less' type='text/css' href='css/sliders.less' />
+        <link rel='stylesheet/less' type='text/css' href='css/style.less' />
+        <link rel='stylesheet' href='css/tooltip.css' />
+        <script src='less/less.min.js'></script>
         <link rel="icon" type="image/png" href="images/favicon.png" />
-		    <meta name="twitter:card" content="summary" />
-		    <meta name="twitter:site" content="@monsieurtino_" />
-		    <meta name="twitter:title" content="Fais ta Licorne du Genre !" />
-		    <meta name="twitter:description" content="Fais ta Licorne du Genre sur le web et partage-la avec tes ami·e·s !" />
-		    <meta name="twitter:image" content="http://unicorn.mrtino.eu/images/unicorn-plain.jpg" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@monsieurtino_" />
+		<meta name="twitter:title" content="Fais ta Licorne du Genre !" />
+		<meta name="twitter:description" content="Fais ta Licorne du Genre sur le web et partage-la avec tes ami·e·s !" />
+		<meta name="twitter:image" content="http://unicorn.mrtino.eu/images/unicorn-plain.jpg" />
         <meta property="og:url" content="https://unicorn.mrtino.eu">
         <meta property="og:title" content="Fais ta Licorne du Genre !">
         <meta property="og:description" content="Fais ta Licorne du Genre sur le web et partage-la avec tes ami·e·s !">
         <meta property="og:image" content="https://uniconr.mrtino.eu/images/unicorn-plain.jpg" />
     </head>
     <body>
-        <a href="https://unicorn.mrtino.eu"><h1>Fais ta Licorne du Genre !</h1></a>
+        <h1>Fais ta Licorne du Genre !</h1>
 
         <div class='content'>
             <div class='unicorn'>
@@ -43,17 +43,17 @@
                 <h2><img width='30' src='images/identity.jpg' alt='Rainbow' /> Identité de genre</h2>
 
                 <div>
-                    <input id='identity-female' type='range' min='0' max='100' />
+                    <input id='identity-female' type='range' min='0' max='100' value='0' />
                     <label for='identity-female'>Femelle / Femme / Fille</label>
                 </div>
 
                 <div>
-                    <input id='identity-male' type='range' min='0' max='100' />
+                    <input id='identity-male' type='range' min='0' max='100' value='0' />
                     <label for='identity-male'>Mâle / Homme / Garçon</label>
                 </div>
 
                 <div>
-                    <input id='identity-other' type='range' min='0' max='100' />
+                    <input id='identity-other' type='range' min='0' max='100' value='0' />
                     <label for='identity-other'>Autres genres</label>
                 </div>
             </section>
@@ -127,17 +127,17 @@
                 <h2><img width='30' src='images/physical.jpg' alt='Orange heart' /> Physiquement attiré par</h2>
 
                 <div>
-                    <input id='physical-women' type='range' min='0' max='100' />
+                    <input id='physical-women' type='range' min='0' max='100' value='0' />
                     <label for='physical-women'>Femmes</label>
                 </div>
 
                 <div>
-                    <input id='physical-men' type='range' min='0' max='100' />
+                    <input id='physical-men' type='range' min='0' max='100' value='0' />
                     <label for='physical-men'>Hommes</label>
                 </div>
 
                 <div>
-                    <input id='physical-other' type='range' min='0' max='100' />
+                    <input id='physical-other' type='range' min='0' max='100' value='0' />
                     <label for='physical-other'>Autre Genre(s)</label>
                 </div>
             </section>
@@ -152,17 +152,17 @@
                 <h2><img width='30' src='images/emotional.jpg' alt='Red heart' /> Émotionellement attiré par</h2>
 
                 <div>
-                    <input id='emotional-women' type='range' min='0' max='100' />
+                    <input id='emotional-women' type='range' min='0' max='100' value='0' />
                     <label for='emotional-women'>Femmes</label>
                 </div>
 
                 <div>
-                    <input id='emotional-men' type='range' min='0' max='100' />
+                    <input id='emotional-men' type='range' min='0' max='100' value='0' />
                     <label for='emotional-men'>Hommes</label>
                 </div>
 
                 <div>
-                    <input id='emotional-other' type='range' min='0' max='100' />
+                    <input id='emotional-other' type='range' min='0' max='100' value='0' />
                     <label for='emotional-other'>Autre Genre(s)</label>
                 </div>
             </section>
@@ -177,23 +177,25 @@
 		</div>
 
         <footer>
-            <p>Le site de la Licorne du Genre a été réalisé avec <span class='heart'>♥</span> par <a href='https://twitter.com/dionyziz'>dionyziz</a>. <a href="https://github.com/mrtino/gender-unicorn">Modifié</a>, amélioré et traduit par <a href="https://twitter.com/monsieurtino_">Leia</a>. Merci à Trinity qui a rendu possible le téléchargement de l'image.
-	    <br/>Licence du site : <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr">Creative Commons BY-SA 4.0</a> <br />Licence de la Licorne : domaine public<br/>
+            <p>
+                Le site de la Licorne du Genre a été réalisé avec <span class='heart'>♥</span> par <a href='https://twitter.com/dionyziz'>dionyziz</a>. <a href="https://github.com/mrtino/gender-unicorn">Modifié</a>, amélioré et traduit par <a href="https://mastodon.xyz/@mrtino">Leia</a>. Merci à Trinity qui a rendu possible le téléchargement de l'image.<br/>
+	            Licence du site : <a href="LICENSE">MIT</a> <br />Licence de la Licorne : domaine public<br/>
                 La Gender Unicorn a été créée par <a href='http://www.transstudent.org/'>Trans Student Educational Resources</a>.<br />
                 <a href='http://www.transstudent.org/gender'>Vous pouvez en apprendre plus sur l'identité de genre sur leur site</a>.<br />
-                Illustrations par Anna Moore. Design par Landyn Pan.</p>
+                Illustrations par Anna Moore. Design par Landyn Pan.
+            </p>
         </footer>
 
         <div class="modal" tabindex="-1" role="dialog" id='share-modal'>
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                
                 <h4 class="modal-title">Partage ta licorne</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </div>
               <div class="modal-body">
                 <p>Partage ta licorne ! Copie cette URL:</p>
-
                 <input type='text' />
               </div>
             </div><!-- /.modal-content -->
@@ -202,9 +204,9 @@
 
 		<canvas id="dl-canvas" width="2048" height="1582" style="display: none"></canvas>
 
-        <script src='bower_components/jquery/dist/jquery.min.js'></script>
-        <script src='behavior.js'></script>
-        <script src='bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
+        <script src='jquery/jquery.min.js'></script>
+        <script src='js/behavior.js'></script>
+        <script src='bootstrap/js/bootstrap.min.js'></script>
 		<img src="images/unicorn.jpg" alt="preloader" style="display: none" id="unicorn-jpg" />
 		<img src="images/util.png" alt="preloader" style="display: none" id="util-png" />
     </body>
